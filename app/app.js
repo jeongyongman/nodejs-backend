@@ -13,6 +13,7 @@ const home = require("./src/routes/home"); // index.js // routes폴더가 src폴
 // 앱 세팅
 app.set("views", "./src/views"); // views폴더 위치 // views폴더가 src폴더 안에 있다
 app.set("view engine", "ejs"); // view 엔진을 ejs 사용 - HTML과 비슷
+app.use(express.static(`${__dirname}/src/public`)); // 현재 디렉토리 네임을 가져와서 /src/public폴더로 만들어주자
 
 app.use("/",home);  // use → 미들 웨어를 등록해주는 메서드.
 
