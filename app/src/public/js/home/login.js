@@ -25,5 +25,13 @@ function login(){
         id: id.value,
         psword: psword.value,
     };
-    console.log(req);
+    // console.log(req); // 일반 req 리퀘스트 데이터와
+    // console.log(JSON.stringify(req)); // JSON 형태로 감싼 req 리퀘스트 데이터 비교해 보자
+    fetch("/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(req),
+      });
 };
