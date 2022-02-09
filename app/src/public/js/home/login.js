@@ -2,3 +2,4 @@
 
 // 테스트하기위해서
 console.log("hello");
+console.log("bye");
