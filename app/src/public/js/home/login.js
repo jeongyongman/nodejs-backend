@@ -30,8 +30,10 @@ function login(){
     fetch("/login", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/json", // 내가 전달하는 데이터의 타입
         },
         body: JSON.stringify(req),
-      });
+      })
+      .then((res) => res.json())        // ← 이 부분 수정하고
+      .then(console.log);
 };
