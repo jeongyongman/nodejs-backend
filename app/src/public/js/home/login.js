@@ -35,5 +35,15 @@ function login(){
         body: JSON.stringify(req),
       })
       .then((res) => res.json())        // ← 이 부분 수정하고
-      .then(console.log);
+      .then((res) => {				// ← 여기 부분
+        if(res.success){
+          location.href = "/";		// 이동할 링크
+        } else {
+          alert(res.msg);				// 서버에서 전달한 메시지
+        }
+      })
+      .catch((err) => {
+        console.error("로그인 중 에러 발생");
+        // console.error(new Error("로그인 중 에러 발생"));
+      });
 };
