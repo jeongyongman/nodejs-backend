@@ -36,11 +36,11 @@ function login(){
       })
       .then((res) => res.json())        // ← 이 부분 수정하고
       .then((res) => {				// ← 여기 부분
-        if(res.success){
-          location.href = "/";		// 이동할 링크
+        if(res.success){                                   // 개발하기쉽게 임시로 주석처리 20
+          location.href = "/";		// 이동할 링크           // 개발하기쉽게 임시로 주석처리 20
         } else {
-          alert(res.msg);				// 서버에서 전달한 메시지
-        }
+          alert(res.msg);				// 서버에서 전달한 메시지// 개발하기쉽게 임시로 주석처리 20
+        }                                                // 개발하기쉽게 임시로 주석처리 20
       })
       .catch((err) => {
         console.error("로그인 중 에러 발생");
