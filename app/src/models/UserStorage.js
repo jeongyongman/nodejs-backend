@@ -14,9 +14,21 @@ class UserStorage {
                 newUsers[field] = users[field];
             };
             return newUsers;    // return 되는 newUsers가 다음 값으로 들어가게 된다
-        },{}); // 배열의 메서드 순환하면서 하나씩 반환 // {} 초기값으로 빈 오브젝트
+        }, {}); // 배열의 메서드 순환하면서 하나씩 반환 // {} 초기값으로 빈 오브젝트
         // console.log(newUsers);
         return newUsers;
+    }
+
+    static getUserInfo(id){
+        const users = this.#users;
+        const idx = users.id.indexOf(id);
+        const usersKeys = Object.keys(users);               // [id,psword,name] 이러한 배열이 만들어짐
+        const userInfo = usersKeys.reduce((newUser, info)=>{
+            newUser[info] = users[info][idx];
+            return newUser;
+        },{});
+
+        return userInfo;
     }
 };
 

@@ -1,6 +1,7 @@
 "use strict";
 
-const UserStorage = require("../../models/UserStorage");
+const User = require("../../models/User");
+// const UserStorage = require("../../models/UserStorage");    // 컨트롤러는 유저스토리지에 접근하지 않는다 지워주자
 
 const ctrloutput = {
     ctrlindex: (req,res)=>{
@@ -19,22 +20,10 @@ const ctrloutput = {
 
 const ctrlprocess = {
     ctrllogin: (req,res)=>{
-        const id = req.body.id,
-            psword = req.body.psword;
-        
-            const users = UserStorage.getUsers("id","psword");        // ← 이 부분 수정
+        const user = new User(req.body); // app>src>models>User.js의 constructor(body)로 들어온다 // 인스턴스를 만들면
+        const response = user.login();
+        // console.log(response);
 
-        const response = {};
-        if (users.id.includes(id)) {
-            const idx = users.id.indexOf(id);
-            if (users.psword[idx] === psword) {
-                response.success = true;
-                return res.json(response);
-            }
-        }
-
-        response.success = false;
-        response.msg = "로그인에 실패하셨습니다.";
         return res.json(response);
     },
 };
