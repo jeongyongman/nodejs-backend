@@ -11,6 +11,10 @@ const ctrloutput = {
     ctrllogin: (req,res)=>{
         res.render("home/login"); // views\home
     },
+
+    register: (req,res)=>{
+        res.render("home/register"); // views\home
+    },
 };
 
 // const users = {
