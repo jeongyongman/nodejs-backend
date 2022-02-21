@@ -22,13 +22,14 @@ const id = document.querySelector("#id"),
 registerBtn.addEventListener("click", register); // 두 번째 인수는 함수이다
 
 function register(){
-    // console.log("bye");
-    // console.log(id.value);
+    if (!id.value) return alert("아이디를 입력해주십시오.");
+    if (psword.value !== confirmPsword) return alert("비밀번호가 일치하지 않습니다.");
+
     const req = {
         id: id.value,
-        name: name.value,         // ←
+        name: name.value,
         psword: psword.value,
-        confirmPsword: confirmPsword.value,         // ←
+        // confirmPsword: confirmPsword.value,         // ←
     };
     // console.log(req); // 일반 req 리퀘스트 데이터와
     // console.log(JSON.stringify(req)); // JSON 형태로 감싼 req 리퀘스트 데이터 비교해 보자

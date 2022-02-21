@@ -30,6 +30,13 @@ const ctrlprocess = {
 
         return res.json(response);
     },
+    register: (req,res)=>{
+        const user = new User(req.body);
+        const response = user.register(); // ←
+        // console.log(response);
+
+        return res.json(response);
+    }
 };
 
 // 오브젝트 {key:value} 외부로 넘겨 주기
