@@ -23,9 +23,9 @@ const ctrloutput = {
 // };
 
 const ctrlprocess = {
-    ctrllogin: (req,res)=>{
+    ctrllogin: async (req,res)=>{
         const user = new User(req.body); // app>src>models>User.js의 constructor(body)로 들어온다 // 인스턴스를 만들면
-        const response = user.login();
+        const response = await user.login();
         // console.log(response);
 
         return res.json(response);
