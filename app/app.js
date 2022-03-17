@@ -2,7 +2,10 @@
 
 // 모듈
 const express = require("express");
-const bodyParser = require("body-parser"); // ← 추가
+const bodyParser = require("body-parser");
+const dotenv = require("dotenv");
+dotenv.config();
+
 const app = express();
 
 // port를 위로 빼자
