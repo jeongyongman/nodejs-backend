@@ -21,6 +21,9 @@ loginBtn.addEventListener("click",login); // 두 번째 인수는 함수이다
 function login(){
     // console.log("bye");
     // console.log(id.value);
+    if (!id.value) return alert("아이디를 입력해주십시오.");
+    if (!psword.value)
+      return alert("비밀번호를 입력해주십시오.");
     const req = {
         id: id.value,
         psword: psword.value,
@@ -39,6 +42,7 @@ function login(){
         if(res.success){                                   // 개발하기쉽게 임시로 주석처리 20
           location.href = "/";		// 이동할 링크           // 개발하기쉽게 임시로 주석처리 20
         } else {
+          if (res.err) return alert(res.err);
           alert(res.msg);				// 서버에서 전달한 메시지// 개발하기쉽게 임시로 주석처리 20
         }                                                // 개발하기쉽게 임시로 주석처리 20
       })

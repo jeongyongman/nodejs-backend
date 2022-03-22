@@ -48,6 +48,7 @@ function register(){
         if(res.success){                                   // 개발하기쉽게 임시로 주석처리 20
           location.href = "/login";		// 이동할 링크           // 개발하기쉽게 임시로 주석처리 20
         } else {
+          if (res.err) return alert(res.err);
           alert(res.msg);				// 서버에서 전달한 메시지// 개발하기쉽게 임시로 주석처리 20
         }                                                // 개발하기쉽게 임시로 주석처리 20
       })
