@@ -13,7 +13,7 @@ class User{
         try {
             const user = await UserStorage.getUserInfo(client.id);
 
-            if(user){
+            if (user){
                 if ( user.id === client.id && user.psword === client.psword){
                     return { success: true};
                 }
